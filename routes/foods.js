@@ -14,6 +14,7 @@ router.delete('/:foodId', foodsController.deleteFood);
 /* UPDATE FOOD */
 router.put('/:foodId', foodsController.updateFood);
 
+/* FIND 1 FOOD */
 router.get('/:foodId', foodsController.findFood);
 
 module.exports = router;

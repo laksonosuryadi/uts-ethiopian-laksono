@@ -14,6 +14,12 @@ router.delete('/:restaurantId', restaurantsController.deleteRestaurant);
 /* UPDATE RESTAURANT */
 router.put('/:restaurantId', restaurantsController.updateRestaurant);
 
+/* FIND 1 RESTAURANT */
 router.get('/:restaurantId', restaurantsController.findRestaurant)
+
+
+/* RELEASE 3 */
+router.post('/addmenu', restaurantsController.addMenu);
+router.get('/showmenu', restaurantsController.showMenu);
 
 module.exports = router;

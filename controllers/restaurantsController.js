@@ -5,7 +5,7 @@ var addRestaurant = function(req, res, next) {
     "name": req.body.name,
     "owner": req.body.owner,
     "address": req.body.address,
-    "open_status": req.body.open_status
+    "open_status": req.body.open_status,
   }, function(err, restaurant) {
     if(err){
       res.send(err)
@@ -64,10 +64,41 @@ var findRestaurant = function(req, res) {
   });
 }
 
+
+var addMenu = function(req, res, next) {
+  Restaurant.create({
+    "name": req.body.name,
+    "owner": req.body.owner,
+    "address": req.body.address,
+    "open_status": req.body.open_status,
+    "menu": req.body.menu
+  }, function(err, restaurant) {
+    if(err){
+      res.send(err)
+    } else {
+      res.send(restaurant)
+    }
+  });
+}
+
+var showMenu = function(req, res, next) {
+  Resaturant.find()
+  .populate('menu')
+  .exec(function(err, menus){
+    if(err){
+      res.send(err)
+    } else {
+      res.send(menus)
+    }
+  })
+}
+
 module.exports = {
   addRestaurant,
   showRestaurants,
   deleteRestaurant,
   updateRestaurant,
-  findRestaurant
+  findRestaurant,
+  showMenu,
+  addMenu
 }
