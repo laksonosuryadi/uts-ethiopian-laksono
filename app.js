@@ -18,7 +18,7 @@ mongoose.connection.on('connected', function(){
 })
 
 app.use('/foods', foods);
-//app.use('/restaurants', restaurants);
+app.use('/restaurants', restaurants);
 app.listen(port, function(){
   console.log(`Listening on port: ${port}`);
 });

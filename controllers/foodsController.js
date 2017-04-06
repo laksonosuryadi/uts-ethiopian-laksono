@@ -52,9 +52,20 @@ var updateFood = function(req, res) {
     })
 }
 
+var findFood = function(req, res) {
+  Food.findOne({ _id: req.params.foodId}, function (err, foods){
+    if(err) {
+      res.send({error: err})
+    } else {
+      res.send(foods)
+    }
+  });
+}
+
 module.exports = {
   addFood,
   showFoods,
   deleteFood,
-  updateFood
+  updateFood,
+  findFood
 }
